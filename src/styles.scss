@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.flex-default {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background-color: rgb(54, 54, 117);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1rem;
+    box-shadow: 1px 1px 8px #818181;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        color: rgb(54, 54, 117);
+        background-color: #fff;
+    }
+
+    &:active {
+        box-shadow: inset 1px 1px 8px #818181;
+    }
+
+}

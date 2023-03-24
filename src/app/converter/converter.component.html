@@ -1,0 +1,40 @@
+<section class="converter flex-default">
+    <h2>Converter</h2>
+    
+ 
+    <form [formGroup]="currencyForm" class="currency-form flex-default">
+
+    <span class="currency-form-section flex-default">
+        <label for="value">Amount</label>
+        <input id="value" required="true" type="text" formControlName="value"/>
+        <p [ngStyle]="{ 'opacity' : currencyForm.invalid ? '1' : '0' }" >Please enter {{ currencyForm.value.value !== '' ? 'a valid' : 'an' }} amount.</p>
+    </span>
+    
+    <label class="label-from" for="currencyA">From</label>
+    <label class="label-to" for="currencyB">To</label>
+
+    <div [ngClass]=" {'reversed' : areCurrenciesReversed} " class="currencies flex-default">
+
+            <select id="currencyA" formControlName="currencyA">
+                <option *ngFor="let symbol of currencySymbols" [value]="symbol[0]">  {{ symbol[0] }} - {{ symbol[1] }}</option>
+            </select>
+    
+            <i (click)="onReverseCurrencies()" class="fa-solid fa-arrow-right-arrow-left fa-rotate-90"></i>
+
+            <select  id="currencyB" formControlName="currencyB">
+                <option *ngFor="let symbol of currencySymbols" [value]="symbol[0]"> {{ symbol[0] }} - {{ symbol[1] }} </option>
+            </select>
+
+
+    </div>
+
+        <button class="btn" type="submit" [disabled]="currencyForm.invalid" (click)="onSubmitCurrencyForm()">Convert</button>
+
+    </form>
+
+    <div *ngIf="exchangeResult$ | async as data" class="converter-result flex-default"> 
+        <span class="converter-input"> {{ data.query.amount }} {{ data.query.from }} =  </span>
+        <span class="converter-output"> {{ data.result }} {{ data.query.to }} </span>
+    </div>
+
+</section>

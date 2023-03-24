@@ -1,0 +1,125 @@
+.converter {
+    position: relative;
+    max-width: 450px;
+    padding: 2em;
+    margin: 2em auto;
+    border-radius: 5px;
+    box-shadow: 1px 1px 8px #818181;
+    flex-direction: column;
+    gap: 1em;
+
+    h2 {
+        margin-right: auto;
+        color: rgb(54, 54, 117);
+    }
+
+    label {
+        font-weight: 600;
+        align-self: flex-start;
+    }
+
+    .label-to {
+        position: absolute;
+        top: 17em;
+    }
+
+    .currencies {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        .fa-arrow-right-arrow-left {
+            border: 1px rgba(128, 128, 128, 0.397) solid;
+            border-radius: 50%;
+            padding: 1em;
+            color: rgba(80, 79, 79, 0.644);
+            cursor: pointer;
+
+            &:hover {
+                color: rgb(54, 54, 117);
+            }
+        }
+
+    }
+
+    .currency-form {
+        width: 100%;
+        flex-direction: column;
+        align-items: normal;
+        gap: 0.5em;
+
+        .currency-form-section {
+            flex-direction: column;
+            gap: 0.5em;
+
+            p {
+                font-size: 0.8rem;
+                color: red;
+                align-self: flex-start;
+                line-height: 0.6em;
+            }
+            
+        }
+
+        input, 
+        select, 
+        button {
+            width: 100%;
+            border: 1px rgba(128, 128, 128, 0.397) solid;
+            border-radius: 5px;
+            padding: 0.8em;
+        }
+
+        button {
+            z-index: 2;
+            position: relative;
+
+            &:disabled {
+                background-color: grey;
+                opacity: 0.5;
+                cursor: not-allowed;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+
+    }
+
+    .converter-result {
+        align-self: flex-start;
+        align-items: normal;
+        flex-direction: column;
+        margin-top: 1em;
+        font-weight: 600;
+        font-size: 1.3rem;
+        animation: fade-in-top 1.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
+        .converter-input {
+            color: grey;
+        }
+
+    }
+
+    .reversed {
+        flex-direction: column-reverse;
+    }
+
+    
+}
+
+
+// KEYFRAMES
+
+@keyframes fade-in-top {
+    0% {
+              transform: translateY(-50px);
+      opacity: 0;
+    }
+    100% {
+              transform: translateY(0);
+      opacity: 1;
+    }
+}
+  
